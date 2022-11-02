@@ -20,6 +20,10 @@
 		<DefaultLanguage>en</DefaultLanguage>
 	</PropertyGroup>
 
+	<PropertyGroup>
+		<RollForward>LatestMajor</RollForward>
+	</PropertyGroup>
+
 	<ItemGroup>
 		<Content Include="Images\LockScreenLogo.scale-200.png" />
 		<Content Include="Images\SplashScreen.png" />
