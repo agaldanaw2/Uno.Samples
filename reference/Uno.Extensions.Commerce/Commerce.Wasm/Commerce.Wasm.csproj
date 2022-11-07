@@ -17,14 +17,14 @@
 		IL Linking is disabled in Debug configuration.
 		When building in Release, see https://platform.uno/docs/articles/features/using-il-linker-webassembly.html
 		-->
-		<WasmShellILLinkerEnabled>false</WasmShellILLinkerEnabled>
+		<WasmShellILLinkerEnabled>false</WasmShellILLinkerEnabled>		
 	</PropertyGroup>
-
 	<PropertyGroup>
 		<UseWebAssemblyAOT Condition="'$(Configuration)'=='Release' and '$(BUILD_REASON)'!='PullRequest'">true</UseWebAssemblyAOT>
 
 		<!-- Disable Emscripten on windows because of long command lines -->
 		<WasmShellEnableEmscriptenWindows Condition="'$(Configuration)'=='Release' and $([MSBuild]::IsOSPlatform('Windows'))">false</WasmShellEnableEmscriptenWindows>
+		<WasmShellForceDisableWSL>true</WasmShellForceDisableWSL>
 	</PropertyGroup>
 
 	<Choose>
@@ -79,8 +79,8 @@
 		<PackageReference Include="Uno.Extensions.Logging.WebAssembly.Console" />
 		<PackageReference Include="Uno.WinUI.WebAssembly" />
 		<PackageReference Include="Uno.WinUI.RemoteControl" Condition="'$(Configuration)'=='Debug'" />
-		<PackageReference Include="Uno.Wasm.Bootstrap" />
-		<PackageReference Include="Uno.Wasm.Bootstrap.DevServer" />
+		<PackageReference Include="Uno.Wasm.Bootstrap" Version="3.3.1" />
+		<PackageReference Include="Uno.Wasm.Bootstrap.DevServer" Version="3.3.1" />
 		<PackageReference Include="Uno.UI.Adapter.Microsoft.Extensions.Logging" />
 		<PackageReference Include="Uno.Material.WinUI" />
 		<PackageReference Include="Uno.Toolkit.WinUI.Material" />
