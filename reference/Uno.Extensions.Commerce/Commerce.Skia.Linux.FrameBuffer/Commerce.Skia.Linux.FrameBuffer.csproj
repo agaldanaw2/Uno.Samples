@@ -2,22 +2,18 @@
 	<PropertyGroup>
 		<OutputType Condition="'$(Configuration)'=='Release'">WinExe</OutputType>
 		<OutputType Condition="'$(Configuration)'=='Debug'">Exe</OutputType>
-		<TargetFramework>net6.0-windows</TargetFramework>
-		<UseWPF>true</UseWPF>
+		<TargetFramework>net6.0</TargetFramework>
 	</PropertyGroup>
-	<ItemGroup Label="AssemblyInfo">
-		<AssemblyAttribute Include="System.Runtime.InteropServices.ComVisibleAttribute">
-			<_Parameter1>false</_Parameter1>
-		</AssemblyAttribute>
-		<AssemblyAttribute Include="System.Windows.ThemeInfo">
-			<_Parameter1>System.Windows.ResourceDictionaryLocation.None</_Parameter1>
-			<_Parameter1_IsLiteral>true</_Parameter1_IsLiteral>
-			<_Parameter2>System.Windows.ResourceDictionaryLocation.SourceAssembly</_Parameter2>
-			<_Parameter2_IsLiteral>true</_Parameter2_IsLiteral>
-		</AssemblyAttribute>
+	<ItemGroup Condition="exists('..\Commerce.Windows')">
+		<EmbeddedResource Include="..\Commerce.Windows\Package.appxmanifest" LogicalName="Package.appxmanifest" />
+		<Content Include="..\Commerce.Windows\Images\StoreLogo.png" Link="Assets\StoreLogo.png" />
+		<Content Include="Assets\Fonts\uno-fluentui-assets.ttf" />
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="Uno.WinUI.Skia.Wpf" />
+		<UpToDateCheckInput Include="..\Commerce.UI\**\*.xaml" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Uno.WinUI.Skia.Linux.FrameBuffer" />
 		<PackageReference Include="Uno.WinUI.RemoteControl" Condition="'$(Configuration)'=='Debug'" />
 		<PackageReference Include="SkiaSharp.Views.Uno.WinUI" />
 		<PackageReference Include="SkiaSharp.Skottie" />
@@ -46,18 +42,9 @@
 		<PackageReference Include="Uno.Extensions.Reactive" />
 		<PackageReference Include="Uno.Extensions.Reactive.WinUI" />
 	</ItemGroup>
-
 	<ItemGroup>
 		<ProjectReference Include="..\Commerce\Commerce.csproj" />
 	</ItemGroup>
 
 	<Import Project="..\Commerce.UI\Commerce.UI.projitems" Label="Shared" />
-
-	<ItemGroup>
-		<Content Include="Assets\Fonts\uno-fluentui-assets.ttf" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Assets\Fonts\Material\" />
-	</ItemGroup>
 </Project>
