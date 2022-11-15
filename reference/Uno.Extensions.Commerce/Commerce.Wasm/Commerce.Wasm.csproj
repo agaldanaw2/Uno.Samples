@@ -79,8 +79,8 @@
 		<PackageReference Include="Uno.Extensions.Logging.WebAssembly.Console" />
 		<PackageReference Include="Uno.WinUI.WebAssembly" />
 		<PackageReference Include="Uno.WinUI.RemoteControl" Condition="'$(Configuration)'=='Debug'" />
-		<PackageReference Include="Uno.Wasm.Bootstrap" Version="3.3.1" />
-		<PackageReference Include="Uno.Wasm.Bootstrap.DevServer" Version="3.3.1" />
+		<PackageReference Include="Uno.Wasm.Bootstrap" />
+		<PackageReference Include="Uno.Wasm.Bootstrap.DevServer"/>
 		<PackageReference Include="Uno.UI.Adapter.Microsoft.Extensions.Logging" />
 		<PackageReference Include="Uno.Material.WinUI" />
 		<PackageReference Include="Uno.Toolkit.WinUI.Material" />
